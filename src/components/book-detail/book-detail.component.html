@@ -1,0 +1,24 @@
+<h2>Selected Book Details</h2>
+<div className="book-section">
+  <mat-card class="about-details">
+    <mat-card-header class="left-section">
+      <mat-card-title> Book Id: </mat-card-title>
+      <mat-card-title> Book Name: </mat-card-title>
+      <mat-card-title> Author: </mat-card-title>
+      <mat-card-title> Book Description: </mat-card-title>
+    </mat-card-header>
+    <mat-card-header class="right-section">
+      <mat-card-subtitle>{{ book.id }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ book.volumeInfo?.title }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ book.volumeInfo?.authors[0] }}</mat-card-subtitle>
+
+      <mat-card-subtitle>
+        {{ book.volumeInfo?.description }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<br />
+
+<button class="btn" mat-button (click)="goBack()">Back</button>

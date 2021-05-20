@@ -1,0 +1,28 @@
+<h2>Search any book from Google Books API</h2>
+<mat-form-field class="autocomplete-bar">
+  <input
+    type="text"
+    placeholder="Search For Books"
+    matInput
+    [matAutocomplete]="auto"
+    [formControl]="searchBookCtrl"
+  />
+
+  <br />
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+    <ng-container *ngIf="!isLoading">
+      <div class="results-container">
+        <mat-option *ngFor="let book of filteredBooks" [value]="book">
+          {{ book.volumeInfo.title }}
+        </mat-option>
+      </div>
+    </ng-container>
+  </mat-autocomplete>
+</mat-form-field>
+
+<br />
+
+<button class="btn" mat-button (click)="bookDetails(searchBookCtrl.value.id)">
+  More Details
+</button>
